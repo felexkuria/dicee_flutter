@@ -15,6 +15,11 @@ class _DicePageState extends State<DicePage> {
   int leftNumber = 1;
   int rightNumber = 3;
 
+  void _changingNumber() {
+    leftNumber = Random().nextInt(6) + 1;
+    rightNumber = Random().nextInt(6) + 1;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,7 +42,7 @@ class _DicePageState extends State<DicePage> {
                 child: FlatButton(
                   onPressed: () {
                     setState(() {
-                      leftNumber = Random().nextInt(6) + 1;
+                      _changingNumber();
                     });
                   },
                   child: Image.asset('assets/images/dice$leftNumber.png'),
@@ -49,7 +54,7 @@ class _DicePageState extends State<DicePage> {
                 child: FlatButton(
                   onPressed: () {
                     setState(() {
-                      rightNumber = Random().nextInt(6) + 1;
+                      _changingNumber();
                     });
 
                     // print('right button got pressed');
